@@ -25,10 +25,10 @@ public class JarLibraryLoader implements LibraryLoader {
 
     /**
      * Initialize a new instance that looks for shared libraries located in the same jar
-     * as this class and with a path starting with {@code lib}.
+     * as this class and with a path starting with {@code libs}.
      */
     public JarLibraryLoader() {
-        this(JarLibraryLoader.class.getProtectionDomain().getCodeSource(), "lib");
+        this(JarLibraryLoader.class.getProtectionDomain().getCodeSource(), "libs");
     }
 
     /**
@@ -93,7 +93,7 @@ public class JarLibraryLoader implements LibraryLoader {
         byte[] buf = new byte[4096];
         int len;
 
-        File lib = File.createTempFile(name, "lib");
+        File lib = File.createTempFile(name, "libs");
         FileOutputStream os = new FileOutputStream(lib);
 
         try {
